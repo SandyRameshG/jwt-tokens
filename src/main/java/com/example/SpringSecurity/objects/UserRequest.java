@@ -14,8 +14,4 @@ public class UserRequest {
     private boolean isActive;
     private String user_type;
 
-
-
-
-
 }
