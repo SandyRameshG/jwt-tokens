@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-security
+    username: root
+    password: admin
+    type: com.zaxxer.hikari.HikariDataSource
+server:
+  port: 9095
+  error:
+    whitelabel:
+      enabled: false
+  servlet:
+    contextPath: /spring-security
+jwt:
+  secret: your_jwt_secret_key_here
+  expiration:
+    ms: 600000  # 10 minute in milliseconds
+
