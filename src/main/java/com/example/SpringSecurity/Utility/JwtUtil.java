@@ -51,16 +51,7 @@ public class JwtUtil {
                 .getBody();
     }
 
-    public boolean validateToken(String token) {
-        try {
-            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
 
-    // Method to get user details from the token
     public User getUserFromToken(String token) {
         Claims claims = parseToken(token);
 
@@ -75,5 +66,15 @@ public class JwtUtil {
 //        user.setUpdated(claims.get("updated", LocalDateTime.class));
 
         return user;
+    }
+        public boolean validateToken(String token) {
+            try {
+                Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
+                return true;
+            } catch (Exception e) {
+                // Log the exception (you can log more details if needed)
+                System.out.println("Invalid JWT token: " + e.getMessage());
+                return false;
+            }
     }
 }
